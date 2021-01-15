@@ -5,6 +5,18 @@ function getWeather(city) {
   });
 }
 
+function processResponse(response) {
+  const weather = {};
+  weather.main = response.weather[0].main;
+  weather.icon = response.weather[0].icon;
+  weather.temp = response.main.temp;
+  weather.humidity = response.main.humidity;
+  weather.windSpeed = response.wind.speed;
+  weather.country = response.sys.country;
+  weather.city = response.name;
+  return weather;
+}
+
 getWeather("Newport Pagnell").then((response) => {
-  console.log(response);
+  console.log(processResponse(response));
 });
