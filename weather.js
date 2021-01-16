@@ -21,10 +21,18 @@ function processResponse(response) {
   return weather;
 }
 
-async function onClick() {
+function onClick() {
   const city = input.value;
   if (!city) return;
   getWeather(city)
-    .then((response) => console.log(processResponse(response)))
+    .then((response) => showData(processResponse(response)))
     .catch((error) => console.log(error));
+}
+
+function showData(weather) {
+  elements = document.querySelectorAll(".disp");
+  elements.forEach((element) => {
+    const id = element.id;
+    element.textContent += `  ${weather[id]}`;
+  });
 }
