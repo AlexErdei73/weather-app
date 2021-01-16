@@ -30,9 +30,23 @@ function onClick() {
 }
 
 function showData(weather) {
-  elements = document.querySelectorAll(".disp");
+  const textContents = {
+    main: `${weather.main}`,
+    temp: `${(weather.temp - 273.16).toFixed(2)}\u2103`,
+    humidity: `humidity: ${weather.humidity}%`,
+    windSpeed: `wind: ${weather.windSpeed}m/s`,
+    country: `${weather.country}`,
+    city: `${weather.city}`,
+  };
+  const elements = document.querySelectorAll(".disp");
   elements.forEach((element) => {
     const id = element.id;
-    element.textContent += `  ${weather[id]}`;
+    element.textContent = textContents[id];
   });
+  showCountryFlag(weather.country);
+}
+
+function showCountryFlag(country) {
+  const img = document.querySelector("#flag");
+  img.src = `https://www.countryflags.io/${country}/flat/64.png`;
 }
