@@ -24,9 +24,12 @@ function processResponse(response) {
 function onClick() {
   const city = input.value;
   if (!city) return;
-  getWeather(city)
-    .then((response) => showData(processResponse(response)))
-    .catch((error) => console.log(error));
+  makeDisplayNotReady();
+  setTimeout(() => {
+    getWeather(city)
+      .then((response) => showData(processResponse(response)))
+      .catch((error) => console.log(error));
+  }, 1000);
 }
 
 function showData(weather) {
@@ -45,6 +48,7 @@ function showData(weather) {
   });
   showCountryFlag(weather.country);
   showWeatherIcon(weather.icon);
+  makeDisplayReady();
 }
 
 function showCountryFlag(country) {
@@ -77,4 +81,16 @@ function showWeatherIcon(code) {
   const url = `./weather-icons/${weatherIcons[code]}`;
   const img = document.querySelector("#icon");
   img.src = url;
+}
+
+function makeDisplayReady() {
+  const display = document.querySelector("#display");
+  display.classList.remove("not-ready");
+  display.classList.add("ready");
+}
+
+function makeDisplayNotReady() {
+  const display = document.querySelector("#display");
+  display.classList.remove("ready");
+  display.classList.add("not-ready");
 }
