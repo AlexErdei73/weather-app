@@ -3,7 +3,7 @@ const input = document.querySelector("input");
 button.addEventListener("click", onClick);
 
 function getWeather(city) {
-  const weatherUrl = `http://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=db5f1eb9b2cd1a0d24607c0b04e5887b`;
+  const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=db5f1eb9b2cd1a0d24607c0b04e5887b`;
   return fetch(weatherUrl, { mode: "cors" }).then((response) =>
     response.json()
   );
