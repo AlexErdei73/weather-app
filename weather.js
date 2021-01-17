@@ -44,9 +44,37 @@ function showData(weather) {
     element.textContent = textContents[id];
   });
   showCountryFlag(weather.country);
+  showWeatherIcon(weather.icon);
 }
 
 function showCountryFlag(country) {
   const img = document.querySelector("#flag");
   img.src = `https://www.countryflags.io/${country}/flat/64.png`;
+}
+
+function showWeatherIcon(code) {
+  const weatherIcons = {
+    c01d: "clear-day.svg",
+    c01n: "clear-night.svg",
+    c02d: "partly-cloudy-day.svg",
+    c02n: "partly-cloudy-night.svg",
+    c03d: "cloudy.svg",
+    c03n: "cloudy.svg",
+    c04d: "cloudy.svg",
+    c04n: "cloudy.svg",
+    c09d: "rain.svg",
+    c09n: "rain.svg",
+    c10d: "partly-cloudy-day-rain.svg",
+    c10n: "partly-cloudy-night-rain.svg",
+    c11d: "thunderstorms-day.svg",
+    c11n: "thunderstorms-night.svg",
+    c13d: "snow.svg",
+    c13n: "snow.svg",
+    c50d: "mist.svg",
+    c50n: "mist.svg",
+  };
+  code = "c" + code;
+  const url = `./weather-icons/${weatherIcons[code]}`;
+  const img = document.querySelector("#icon");
+  img.src = url;
 }
