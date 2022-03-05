@@ -32,8 +32,8 @@ div {
   margin: 0;
   margin-left: 2em;
   padding: 10px;
-  width: 360px;
-  min-width: 360px;
+  width: 380px;
+  min-width: 380px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -111,7 +111,7 @@ div {
   margin: auto;
 }
 
-@media (min-width: 600px) {
+@media (min-width: 768px) {
   #logo {
     display: block;
   }
