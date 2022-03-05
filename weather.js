@@ -22,7 +22,7 @@ function processResponse(response) {
 }
 
 function onSubmit(e) {
-  e.preventDefault();
+  if (e) e.preventDefault();
   const city = input.value;
   if (!city) return;
   makeDisplayNotReady();

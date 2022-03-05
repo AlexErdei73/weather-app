@@ -58,6 +58,7 @@ div {
   font-size: 0.9rem;
   height: 2.1rem;
   width: 4.5rem;
+  min-width: fit-content;
 }
 
 #search-btn:hover {
