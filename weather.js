@@ -1,6 +1,6 @@
-const button = document.querySelector("button");
+const form = document.querySelector("form");
 const input = document.querySelector("input");
-button.addEventListener("click", onClick);
+form.addEventListener("submit", onSubmit);
 
 function getWeather(city) {
   const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=db5f1eb9b2cd1a0d24607c0b04e5887b`;
@@ -21,7 +21,8 @@ function processResponse(response) {
   return weather;
 }
 
-function onClick() {
+function onSubmit(e) {
+  e.preventDefault();
   const city = input.value;
   if (!city) return;
   makeDisplayNotReady();
@@ -97,4 +98,4 @@ function makeDisplayNotReady() {
 
 //render a city at the beginning to keep the page full
 input.value = "Budapest";
-onClick();
+onSubmit();
