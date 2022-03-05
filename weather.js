@@ -94,3 +94,7 @@ function makeDisplayNotReady() {
   display.classList.remove("ready");
   display.classList.add("not-ready");
 }
+
+//render a city at the beginning to keep the page full
+input.value = "Budapest";
+onClick();
