@@ -53,7 +53,7 @@ function showData(weather) {
 
 function showCountryFlag(country) {
   const img = document.querySelector("#flag");
-  img.src = `https://www.countryflags.io/${country}/flat/64.png`;
+  img.src = `https://countryflagsapi.com/png/${country}`;
 }
 
 function showWeatherIcon(code) {
